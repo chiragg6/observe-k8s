@@ -1,0 +1,9 @@
+apiVersion: auditlogs.observe.k8s/v1
+kind: AuditLog
+metadata:
+  labels:
+    app.kubernetes.io/name: observe-k8s
+    app.kubernetes.io/managed-by: kustomize
+  name: auditlog-sample
+spec:
+  # TODO(user): Add fields here

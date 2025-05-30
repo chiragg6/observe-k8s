@@ -1,0 +1,27 @@
+# permissions for end users to edit auditlogs.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: observe-k8s
+    app.kubernetes.io/managed-by: kustomize
+  name: auditlog-editor-role
+rules:
+- apiGroups:
+  - auditlogs.observe.k8s
+  resources:
+  - auditlogs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - auditlogs.observe.k8s
+  resources:
+  - auditlogs/status
+  verbs:
+  - get

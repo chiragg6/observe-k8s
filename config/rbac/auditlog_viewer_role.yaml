@@ -1,0 +1,23 @@
+# permissions for end users to view auditlogs.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: observe-k8s
+    app.kubernetes.io/managed-by: kustomize
+  name: auditlog-viewer-role
+rules:
+- apiGroups:
+  - auditlogs.observe.k8s
+  resources:
+  - auditlogs
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - auditlogs.observe.k8s
+  resources:
+  - auditlogs/status
+  verbs:
+  - get
